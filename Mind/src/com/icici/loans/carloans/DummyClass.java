@@ -8,8 +8,6 @@ public class DummyClass {
 		System.out.println("iam second line...");
 		
 		System.out.println("iam Third line...");
-		
-		System.out.println("iam fourth line...");
 
 	}
 
