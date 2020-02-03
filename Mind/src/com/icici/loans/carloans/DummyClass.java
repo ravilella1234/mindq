@@ -4,6 +4,7 @@ public class DummyClass {
 	
 
 	int x=10,y=20,z;
+	int no;
 	
 	public void add()
 	{
