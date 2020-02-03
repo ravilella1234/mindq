@@ -2,7 +2,7 @@ package com.icici.loans.carloans;
 
 public class DummyClass {
 
-	int a=10,b=20,d;
+	int a=10,b=20,d,e;
 	
 	public void add()
 	{
