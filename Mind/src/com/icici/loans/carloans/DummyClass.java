@@ -2,6 +2,7 @@ package com.icici.loans.carloans;
 
 public class DummyClass {
 	
+
 	int x=10,y=20,z;
 	
 	public void add()
@@ -16,6 +17,8 @@ public class DummyClass {
 		System.out.println("Sub of X & Y Is : " + z);
 	}
 
+	
+	
 	public static void main(String[] args) {
 		System.out.println("iam first line...");
 		
