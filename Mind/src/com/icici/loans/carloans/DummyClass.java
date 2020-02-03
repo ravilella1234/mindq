@@ -2,34 +2,22 @@ package com.icici.loans.carloans;
 
 public class DummyClass {
 	
-	int a=10,b=20,c;
+
+	int x=10,y=20,z;
 	
 	public void add()
 	{
-		c=a+b;
-		System.out.println("Addition of A & b is : " + c);
+		z=x+y;
+		System.out.println("Addition of X & Y is : " + z);
 	}
 	
 	public void sub()
 	{
-		c=a-b;
-		System.out.println("Sub of A & B Is : " + c);
+		z=x-y;
+		System.out.println("Sub of X & Y Is : " + z);
 	}
 
-	int a=10,b=20,d,e;
 	
-	public void add()
-	{
-		d=a+b;
-		System.out.println("Addition of A & b is : " + d);
-	}
-	
-	public void sub()
-	{
-		d=a-b;
-		System.out.println("Sub of A & B Is : " + d);
-	}
-
 	
 	public static void main(String[] args) {
 		System.out.println("iam first line...");
