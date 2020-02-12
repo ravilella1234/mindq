@@ -1,9 +1,16 @@
 package com.icici.loans.homeloans;
 
+
 import com.icici.loans.carloans.A;
+import com.icici.loans.carloans.B;
 
 public class C extends A
 {
+	
+	public void m1()
+	{
+		System.out.println("iam overriden  m1 from ClassC");
+	}
 	
 	public void m3()
 	{
@@ -14,12 +21,10 @@ public class C extends A
 		C c=new C();
 		c.m3();
 		c.m1();
-	}
-
-	@Override
-	public void m4() {
-		// TODO Auto-generated method stub
 		
+		A a=new A();
+		a.m1();
 	}
 
+	
 }
