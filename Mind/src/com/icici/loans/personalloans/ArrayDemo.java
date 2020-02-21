@@ -4,16 +4,9 @@ import java.util.Scanner;
 
 public class ArrayDemo 
 {
-
-	public static void main(String[] args) 
+	
+	public int arrayDemo()
 	{
-		/*
-		 * int[] a= {10,20,30,40};
-		 * 
-		 * for(int i=0;i<a.length;i++) { System.out.println("a["+i+"]="+a[i]); }
-		 */
-		
-		
 		int asize;
 		int sum=0;
 		Scanner sc=new Scanner(System.in);
@@ -26,10 +19,26 @@ public class ArrayDemo
 		for(int i=0;i<a.length;i++)
 		{
 			a[i]=sc.nextInt();
-			System.out.print("a["+i+"]="+a[i]);
+			System.out.println("a["+i+"]="+a[i]);
 			sum=sum+a[i];
 		}
 		System.out.println("Sum of the array is : " + sum);
+		return sum;
+	}
+	
+
+	public static void main(String[] args) 
+	{
+		/*
+		 * int[] a= {10,20,30,40};
+		 * 
+		 * for(int i=0;i<a.length;i++) { System.out.println("a["+i+"]="+a[i]); }
+		 */
+		ArrayDemo obj=new ArrayDemo();
+		int count = obj.arrayDemo();
+		System.out.println("Sum of Array in outside :" + count);
+		
+		
 	}
 
 }
