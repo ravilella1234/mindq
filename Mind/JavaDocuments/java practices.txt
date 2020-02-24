@@ -1,8 +1,8 @@
 Java logic Practice programs:
------------------------------- 
+------------------------------
 
  https://beginnersbook.com/2017/09/java-examples/
- 
+
 https://codescracker.com/java/program/java-program-add-n-numbers.htm
 
  http://www.w3resource.com/java-exercises/

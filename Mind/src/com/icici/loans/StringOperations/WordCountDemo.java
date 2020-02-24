@@ -2,7 +2,8 @@ package com.icici.loans.StringOperations;
 
 import java.util.Scanner;
 
-public class WordCountDemo {
+public class WordCountDemo 
+{
 
 	public static void main(String[] args) 
 	{
