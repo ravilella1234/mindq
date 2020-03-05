@@ -54,7 +54,8 @@ public class BaseTest
 	
 	public static void navigateUrl(String url)
 	{
-		driver.get(subenv.getProperty(url));
+		//driver.get(subenv.getProperty(url));
+		driver.navigate().to(subenv.getProperty(url));
 	}
 	
 
