@@ -4,7 +4,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Properties;
 
+import org.apache.log4j.PropertyConfigurator;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -38,6 +41,9 @@ public class BaseTest
 		subenv.load(fis);
 		String url = subenv.getProperty("amazonurl");
 		System.out.println(url);
+		
+		fis=new FileInputStream(projectPath+"\\log4jconfig.properties");
+		PropertyConfigurator.configure(fis);
 	}
 	
 	public static void openBrowser(String browser)
@@ -67,12 +73,53 @@ public class BaseTest
 			
 			driver=new FirefoxDriver(option);
 		}
+		
+		driver.manage().window().maximize();
 	}
 	
 	public static void navigateUrl(String url)
 	{
 		//driver.get(subenv.getProperty(url));
 		driver.navigate().to(subenv.getProperty(url));
+	}
+	
+	public static void clickElement(String locatorKey) {
+		//driver.findElement(By.xpath(locator)).click();
+		getElement(locatorKey).click();
+		
+	}
+
+	public static void type(String locatorKey, String value) {
+		//driver.findElement(By.name(locatorKey)).sendKeys(value);
+		getElement(locatorKey).sendKeys(value);
+	}
+
+	public static void selectOption(String locatorKey, String option) {
+		//driver.findElement(By.id(locatorKey)).sendKeys(option);
+		getElement(locatorKey).sendKeys(option);
+	}
+
+	public static WebElement getElement(String locatorKey) 
+	{
+		WebElement element=null;
+		
+		if(locatorKey.endsWith("_id")) {
+			element=driver.findElement(By.id(mainenv.getProperty(locatorKey)));
+		}else if(locatorKey.endsWith("_name")) {
+			element=driver.findElement(By.name(mainenv.getProperty(locatorKey)));
+		}else if(locatorKey.endsWith("_classname")) {
+			element=driver.findElement(By.className(mainenv.getProperty(locatorKey)));
+		}else if(locatorKey.endsWith("_xpath")) {
+			element=driver.findElement(By.xpath(mainenv.getProperty(locatorKey)));
+		}else if(locatorKey.endsWith("_css")) {
+			element=driver.findElement(By.cssSelector(mainenv.getProperty(locatorKey)));
+		}else if(locatorKey.endsWith("_linkTest")) {
+			element=driver.findElement(By.linkText(mainenv.getProperty(locatorKey)));
+		}else if(locatorKey.endsWith("_partiallinktext")) {
+			element=driver.findElement(By.partialLinkText(mainenv.getProperty(locatorKey)));
+		}
+		
+		return element;
 	}
 	
 
