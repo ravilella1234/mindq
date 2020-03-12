@@ -15,6 +15,9 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.ProfilesIni;
 
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+
 public class BaseTest 
 {
 	public static WebDriver driver;
@@ -23,6 +26,8 @@ public class BaseTest
 	public static Properties mainenv;
 	public static Properties subenv;
 	public static String projectPath=System.getProperty("user.dir");
+	public static ExtentReports report;
+	public static ExtentTest test;
 	
 	public static void init() throws Exception
 	{
@@ -44,6 +49,9 @@ public class BaseTest
 		
 		fis=new FileInputStream(projectPath+"\\log4jconfig.properties");
 		PropertyConfigurator.configure(fis);
+		
+		report = ExtentManager.getInstance();
+		
 	}
 	
 	public static void openBrowser(String browser)
@@ -91,12 +99,12 @@ public class BaseTest
 
 	public static void type(String locatorKey, String value) {
 		//driver.findElement(By.name(locatorKey)).sendKeys(value);
-		getElement(locatorKey).sendKeys(value);
+		getElement(locatorKey).sendKeys(mainenv.getProperty(value));
 	}
 
 	public static void selectOption(String locatorKey, String option) {
 		//driver.findElement(By.id(locatorKey)).sendKeys(option);
-		getElement(locatorKey).sendKeys(option);
+		getElement(locatorKey).sendKeys(mainenv.getProperty(option));
 	}
 
 	public static WebElement getElement(String locatorKey) 
